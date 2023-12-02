@@ -21,6 +21,18 @@ async function createDB() {
   } catch (e) {
     showResult("Erro ao criar o banco de dados:" + e.massage)
   }
+}
 
+window.addEventListener('DOMContentLoaded', async event =>{
+  criarDB();
+  document.getElementById('botaoCadastro').addEventListener('click', cadastrarFlor);
+  document.getElementById('botaoMostrar').addEventListener('click', buscarFlor);
+  document.getElementById('deletar').addEventListener('click', deletarFlor)
+});
 
+async function buscarFlor(){
+  if(db == undefined){
+    console.log("deu erro");
+  }
+  const 
 }
