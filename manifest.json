@@ -3,28 +3,28 @@
     "short_name": "Flor",
     "icons": [
         {
-            "src": "images/camera_128.png",
+            "src": "images/buque.png",
             "sizes": "128x128",
             "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "any maskable"
         },
         {
-            "src": "images/camera_256.png",
+            "src": "images/buque.png",
             "sizes": "256x256",
             "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "any maskable"
         },
         {
             "src": "images/buque.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "any maskable"
         },
         {
             "src": "images/camera_64.png",
             "sizes": "256x256",
             "type": "image/png",
-            "purpose": "maskable"
+            "purpose": "any maskable"
         }
     ],
     "lang": "pt-BR",

@@ -25,8 +25,8 @@ async function createDB() {
 
 window.addEventListener('DOMContentLoaded', async event =>{
   criarDB();
-  document.getElementById('camera--trigger').addEventListener('click', cadastrarFlor);
-  document.getElementById('botaoMostrar').addEventListener('click', buscarFlor);
+  document.getElementById('camera').addEventListener('click', cadastrarFlor);
+  document.getElementById('listar').addEventListener('click', buscarFlor);
   document.getElementById('deletar').addEventListener('click', deletarFlor)
 });
 
@@ -38,10 +38,10 @@ async function buscarFlor(){
     const store = await tx.objectStore('foto');
     const anotacoes = await store.getAll();
     if(anotacoes){
-        const divLista = anotacoes.map(anotacao => {
+        const divLista = anotacoes.map(foto => {
             return `<div class="item">
                     <p>Anotação</p>
-                    <p>${anotacao.titulo} - ${anotacao.data} </p>
+                    <p>${foto.nome} - ${foto.camera} </p>
                    </div>`;
         });
         listagem(divLista.join(' '));
