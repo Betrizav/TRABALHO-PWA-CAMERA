@@ -47,3 +47,15 @@ async function buscarFlor(){
         listagem(divLista.join(' '));
   }
 }
+
+async function cadastrarFlor () {
+  let camera = document.getElementById("camera").Value;
+  let nome = document.getElementById("nome").Value;
+  const tx = await db.transaction('foto', 'readwrite')
+  const store = tx.objectStore('foto');
+  try {
+    await store.add({camera: camera, nome: nome});
+    await tx.done;
+    limparCampos();
+  }
+}
