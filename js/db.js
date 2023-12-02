@@ -25,7 +25,7 @@ async function createDB() {
 
 window.addEventListener('DOMContentLoaded', async event =>{
   criarDB();
-  document.getElementById('botaoCadastro').addEventListener('click', cadastrarFlor);
+  document.getElementById('camera--trigger').addEventListener('click', cadastrarFlor);
   document.getElementById('botaoMostrar').addEventListener('click', buscarFlor);
   document.getElementById('deletar').addEventListener('click', deletarFlor)
 });
