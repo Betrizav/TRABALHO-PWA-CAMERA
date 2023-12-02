@@ -1,21 +1,24 @@
 {
-    "name": "camera",
-    "short_name": "pc",
+    "name": "Floricultura",
+    "short_name": "Flor",
     "icons": [
         {
             "src": "images/camera_128.png",
             "sizes": "128x128",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
             "src": "images/camera_256.png",
             "sizes": "256x256",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
-            "src": "images/camera_512.png",
+            "src": "images/buque.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
             "src": "images/camera_64.png",
