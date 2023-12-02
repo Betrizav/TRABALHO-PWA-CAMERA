@@ -34,5 +34,5 @@ async function buscarFlor(){
   if(db == undefined){
     console.log("deu erro");
   }
-  const 
+  const tx = await db.transaction('')
 }
