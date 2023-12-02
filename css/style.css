@@ -38,3 +38,11 @@ html, body{
       right: 20px;
       z-index: 2;
   }
+  h1{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0% auto;
+    margin-top: 12px;
+  }
