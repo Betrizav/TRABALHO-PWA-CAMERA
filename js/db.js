@@ -34,5 +34,16 @@ async function buscarFlor(){
   if(db == undefined){
     console.log("deu erro");
   }
-  const tx = await db.transaction('')
+  const tx = await db.transaction('foto', 'readonly');
+    const store = await tx.objectStore('foto');
+    const anotacoes = await store.getAll();
+    if(anotacoes){
+        const divLista = anotacoes.map(anotacao => {
+            return `<div class="item">
+                    <p>Anotação</p>
+                    <p>${anotacao.titulo} - ${anotacao.data} </p>
+                   </div>`;
+        });
+        listagem(divLista.join(' '));
+  }
 }
