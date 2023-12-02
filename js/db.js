@@ -57,5 +57,9 @@ async function cadastrarFlor () {
     await store.add({camera: camera, nome: nome});
     await tx.done;
     limparCampos();
+    console.log('');
+  } catch (error) {
+    console.error('', error);
+    tx.abort();
   }
 }
