@@ -1,4 +1,4 @@
-//registrando a service worker
+  //registrando a service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
@@ -65,6 +65,8 @@ async function saveToIndexDB(imagemSalva) {
   request.trrerror = function (event) {
     console.error('Erro', event.target.error);
   };
+
+
 
   request.floricultura = function (event) {
     const banco = event.target.result;
