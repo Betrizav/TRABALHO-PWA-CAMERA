@@ -37,7 +37,10 @@ function cameraStart() {
     });
 }
 
-btnSalvar.addEventListener('click', function)
+btnSalvar.addEventListener('click', function () {
+  const imagemSalva = cameraSensor.toDataURL('image/png');
+  saveToIndexDB(imagemSalva);
+})
 
 // Função para tirar foto
 camera.onclick = function () {
