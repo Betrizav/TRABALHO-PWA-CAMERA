@@ -52,7 +52,7 @@ btnSalvar.addEventListener('click', function () {
   saveToIndexDB(imagemSalva);
 });
 
-function saveToIndexDB(imagemSalva) {
+async function saveToIndexDB(imagemSalva) {
   const nomeDB = 'SalvarFoto';
   const VersaoDB =  1;
   const stnome = 'fotos';
@@ -97,7 +97,7 @@ function saveToIndexDB(imagemSalva) {
 }
 
 
-function RegistrarNoDB () {
+async function RegistrarNoDB () {
   const nomeDB = 'SalvarFoto';
   const VersaoDB =  1;
   const stnome = 'fotos';
@@ -124,9 +124,30 @@ function RegistrarNoDB () {
 
     getMtrequest.trrerror = function (error) {
       console.error('', error);
+    };
+  };
+};
+async function buscarTodasAnotacoes(){
+  if(db == undefined){
+      console.log("O banco de dados está fechado.");
+  }
+  const tx = await db.transaction('photo', 'readonly');
+  const st = await tx.objectStore('photo');
+  const photos = await st.getAll();
+  if(photos){
+      const divLista = photos.map(photo => {
+          return `<div class="item">
+                  <p>Fotos</p>
+                  <img src="${photo.imagemSalva}"/> - ${photo.nome} </p>
+
+                 </div>`;
+      });
+      listagem(divLista.join(' '));
     }
   }
-}
-
+async function TodasFotos (flor){
+  console.log(flor);
+  document.getElementById('listar').innerHTML = Text;
+};
 // carrega imagem de camera quando a janela carregar
 window.addEventListener("load", cameraStart, false);
