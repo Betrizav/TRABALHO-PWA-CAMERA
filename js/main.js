@@ -19,7 +19,10 @@ var constraints = { video: { facingMode: "user" }, audio: false };
 const cameraView = document.querySelector("#camera--view"),
   cameraOutput = document.querySelector("#camera--output"),
   cameraSensor = document.querySelector("#camera--sensor"),
-  cameraTrigger = document.querySelector("#camera--trigger")
+  camera = document.querySelector("#camera"),
+  btnSalvar = document.querySelector("#Salvar");
+  document.getElementById('listar').addEventListener('click', RegistrarNoBanco)
+
 
 //Estabelecendo o acesso a camera e inicializando a visualização
 function cameraStart() {
@@ -34,8 +37,10 @@ function cameraStart() {
     });
 }
 
+btnSalvar.addEventListener('click', function)
+
 // Função para tirar foto
-cameraTrigger.onclick = function () {
+camera.onclick = function () {
   cameraSensor.width = cameraView.videoWidth;
   cameraSensor.height = cameraView.videoHeight;
   cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
