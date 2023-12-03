@@ -21,7 +21,7 @@ const cameraView = document.querySelector("#camera--view"),
   cameraSensor = document.querySelector("#camera--sensor"),
   camera = document.querySelector("#camera"),
   btnSalvar = document.querySelector("#Salvar");
-  document.getElementById('listar').addEventListener('click', RegistrarNoBanco)
+  document.getElementById('listar').addEventListener('click', RegistrarNoDB)
 
 
 //Estabelecendo o acesso a camera e inicializando a visualização
@@ -88,12 +88,20 @@ function saveToIndexDB(imagemSalva) {
         };
 
         addRequest.trrerror = function (error) {
-    
+          console.error('', error);
         };
   
     };
 }
 
+
+function RegistrarNoDB () {
+  const nomeDB = 'SalvarFoto';
+  const VersaoDB =  1;
+  const stnome = 'fotos';
+
+    const request = indexedDB.open(nomeDB, VersaoDB);
+}
 
 // carrega imagem de camera quando a janela carregar
 window.addEventListener("load", cameraStart, false);
