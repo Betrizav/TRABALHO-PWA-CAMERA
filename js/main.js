@@ -37,11 +37,6 @@ function cameraStart() {
     });
 }
 
-btnSalvar.addEventListener('click', function () {
-  const imagemSalva = cameraSensor.toDataURL('image/png');
-  saveToIndexDB(imagemSalva);
-})
-
 // Função para tirar foto
 camera.onclick = function () {
   cameraSensor.width = cameraView.videoWidth;
@@ -50,5 +45,41 @@ camera.onclick = function () {
   cameraOutput.src = cameraSensor.toDataURL("image/webp");
   cameraOutput.classList.add("taken");
 };
+
+
+btnSalvar.addEventListener('click', function () {
+  const imagemSalva = cameraSensor.toDataURL('image/png');
+  saveToIndexDB(imagemSalva);
+});
+
+function saveToIndexDB(imagemSalva) {
+  const nomeDB = 'SalvarFoto';
+  const VersaoDB =  1;
+  const stnome = 'fotos';
+
+  const request = indexDB.open(nomeDB, VersaoDB);
+  console.log("biana")
+
+  request.trrerror = function (event) {
+    console.error('Erro', event.target.error);
+  };
+
+  request.floricultura = function (event) {
+    const db = event.target.result;
+    const nome = db.createObjectStore(stnome, { autoIcrement: true, keyPath: 'id'});
+  };
+
+  request.sucesso = function (event) {
+    const db = event.target.result;
+    const transaction = db.transaction(stnome, 'readwrite');
+    const st = db.objectStore(stnome);
+
+      const nome = document.getElementById('nome').value;
+
+        const fotinhas = { imagemSalva: imagemSalva, timestamp: new Date(), }
+  }
+}
+
+
 // carrega imagem de camera quando a janela carregar
 window.addEventListener("load", cameraStart, false);
