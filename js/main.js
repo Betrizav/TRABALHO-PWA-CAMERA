@@ -66,7 +66,7 @@ function saveToIndexDB(imagemSalva) {
 
   request.floricultura = function (event) {
     const db = event.target.result;
-    const nome = db.createObjectStore(stnome, { autoIcrement: true, keyPath: 'id'});
+    const st = db.createObjectStore(stnome, { autoIcrement: true, keyPath: 'id'});
   };
 
   request.sucesso = function (event) {
@@ -76,8 +76,22 @@ function saveToIndexDB(imagemSalva) {
 
       const nome = document.getElementById('nome').value;
 
-        const fotinhas = { imagemSalva: imagemSalva, timestamp: new Date(), }
-  }
+        const fotinhas = { imagemSalva: imagemSalva,
+           timestamp: new Date(),
+            nome: nome };
+            console.log(fotinhas)
+            const addRequest = st.add(fotinhas);
+   
+        
+        addRequest.sucesso = function () {
+          console.log('Foto Salva')
+        };
+
+        addRequest.trrerror = function (error) {
+    
+        };
+  
+    };
 }
 
 
