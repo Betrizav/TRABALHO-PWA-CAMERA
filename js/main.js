@@ -58,6 +58,8 @@ function saveToIndexDB(imagemSalva) {
   const stnome = 'fotos';
 
   const request = indexDB.open(nomeDB, VersaoDB);
+
+
   console.log("biana")
 
   request.trrerror = function (event) {
@@ -65,14 +67,14 @@ function saveToIndexDB(imagemSalva) {
   };
 
   request.floricultura = function (event) {
-    const db = event.target.result;
-    const st = db.createObjectStore(stnome, { autoIcrement: true, keyPath: 'id'});
+    const banco = event.target.result;
+    const st = banco.createObjectStore(stnome, { autoIcrement: true, keyPath: 'id'});
   };
 
   request.sucesso = function (event) {
-    const db = event.target.result;
-    const transaction = db.transaction(stnome, 'readwrite');
-    const st = db.objectStore(stnome);
+    const banco = event.target.result;
+    const transaction = banco.transaction(stnome, 'readwrite');
+    const st = transaction.objectStore(stnome);
 
       const nome = document.getElementById('nome').value;
 
@@ -101,6 +103,29 @@ function RegistrarNoDB () {
   const stnome = 'fotos';
 
     const request = indexedDB.open(nomeDB, VersaoDB);
+
+  request.trrerror = function (event) {
+    console.log('',event.target.error);
+  };
+  request.floricultura = function (event) {
+    const banco = event.target.result;
+    const st = banco.createObjectStore(stnome, { autoIcrement: true, keyPath: 'id'});
+  };
+
+  request.sucesso = function (event) {
+    const banco = event.target.result;
+    const transaction = banco.transaction(stnome, 'readonly');
+    const st = transaction.objectStore(stnome);
+
+    const getMtrequest = st.getAll();
+    getMtrequest.sucesso = function () {
+      let ever = find(getMtrequest.result);
+    };
+
+    getMtrequest.trrerror = function (error) {
+      console.error('', error);
+    }
+  }
 }
 
 // carrega imagem de camera quando a janela carregar
